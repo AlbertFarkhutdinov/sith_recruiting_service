@@ -1,0 +1,43 @@
+{% extends 'sith_app/base.html'%}
+{% load bootstrap4 %}
+{% block container %}
+<div>
+    <h2 class="h2">Таблица всех ситхов и количества их Рук Тени</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Ситх</th>
+            <th scope="col">Число его Рук тени</th>
+            <th scope="col">Мастер</th>
+        </tr>
+        </thead>
+        {% for sith in sith_set %}
+        <tr>
+            <td>{{sith.username}}</td>
+            <td>{{sith.get_shadow_hands_number}}</td>
+            <td>{{sith.master.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2 class="h2">Ситхи, у которых более 1 Руки Тени.</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Ситх</th>
+            <th scope="col">Число его Рук тени</th>
+            <th scope="col">Мастер</th>
+        </tr>
+        </thead>
+        {% for sith in sith_with_two_and_more %}
+        <tr>
+            <td>{{sith.username}}</td>
+            <td>{{sith.get_shadow_hands_number}}</td>
+            <td>{{sith.master.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a class="btn btn-primary" href="{% url 'main:main' %}">На Главную</a>
+</div>
+{% endblock %}

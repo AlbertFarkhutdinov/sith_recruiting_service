@@ -1,0 +1,15 @@
+{% extends 'recruits_app/base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block container %}
+    <form class="form" action="{% url 'recruits:result' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_formset question_set %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">Ответить</button>
+        {% endbuttons %}
+    </form>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/delete_button.js' %}"></script>
+{% endblock %}
