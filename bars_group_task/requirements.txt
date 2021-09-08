@@ -1,3 +1,3 @@
 Django==2.2.22
 django-bootstrap4==1.1.1
-Pillow==8.2.0
+Pillow==8.3.2
