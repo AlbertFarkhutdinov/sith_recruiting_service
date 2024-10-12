@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "recruitment"
+version = "0.1.0"
+description = ""
+authors = ["AlbertFarkhutdinov <albertfarhutdinov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+Django = "<5.0"
+django-bootstrap-v5 = "<1.1"
+pillow = "<10.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
