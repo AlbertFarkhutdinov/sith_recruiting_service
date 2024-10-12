@@ -6,9 +6,9 @@
         {% csrf_token %}
         {% bootstrap_form login_form %}
         {% buttons %}
-        <button type="submit" class="btn btn-primary">Войти</button>
+        <button type="submit" class="btn btn-primary">Login</button>
         {% endbuttons %}
     </form>
-    <a class="btn btn-primary" href="{% url 'main:main' %}">На Главную</a>
+    <a class="btn btn-primary" href="{% url 'main:main' %}">Main</a>
 </div>
 {% endblock %}

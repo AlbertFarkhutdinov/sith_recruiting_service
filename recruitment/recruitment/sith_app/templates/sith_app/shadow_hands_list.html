@@ -2,13 +2,13 @@
 {% load bootstrap5 %}
 {% block container %}
 <div>
-    <h2 class="h2">Таблица всех ситхов и количества их Рук Тени</h2>
+    <h2 class="h2">Siths and their Shadow hands</h2>
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Ситх</th>
-            <th scope="col">Число его Рук тени</th>
-            <th scope="col">Мастер</th>
+            <th scope="col">Sith</th>
+            <th scope="col">Shadow hands</th>
+            <th scope="col">Master</th>
         </tr>
         </thead>
         {% for sith in sith_set %}
@@ -20,13 +20,13 @@
         {% endfor %}
     </table>
 
-    <h2 class="h2">Ситхи, у которых более 1 Руки Тени.</h2>
+    <h2 class="h2">Siths with more than 1 Shadow Hand.</h2>
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Ситх</th>
-            <th scope="col">Число его Рук тени</th>
-            <th scope="col">Мастер</th>
+            <th scope="col">Sith</th>
+            <th scope="col">Shadow Hands Number</th>
+            <th scope="col">Master</th>
         </tr>
         </thead>
         {% for sith in sith_with_two_and_more %}
@@ -38,6 +38,6 @@
         {% endfor %}
     </table>
 
-    <a class="btn btn-primary" href="{% url 'main:main' %}">На Главную</a>
+    <a class="btn btn-primary" href="{% url 'main:main' %}">Main</a>
 </div>
 {% endblock %}

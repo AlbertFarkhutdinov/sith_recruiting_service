@@ -2,10 +2,10 @@
   {
     "username": "darth_bane",
     "password": "darth_bane",
-    "first_name": "Бэйн",
-    "last_name": "Дарт",
+    "first_name": "Bane",
+    "last_name": "Darth",
     "age": 46,
-    "planet": "Датомир",
+    "planet": "Dathomir",
     "email": "darth_bane@starwars.com",
     "is_shadow_hand": true,
     "master": "lord"
@@ -13,10 +13,10 @@
   {
     "username": "freedon_nadd",
     "password": "freedon_nadd",
-    "first_name": "Фридон",
-    "last_name": "Надд",
+    "first_name": "Freedon",
+    "last_name": "Nadd",
     "age": 74,
-    "planet": "Ондерон",
+    "planet": "Mandalore",
     "email": "freedon_nadd@starwars.com",
     "is_shadow_hand": true,
     "master": "lord"

@@ -8,16 +8,18 @@ from recruitment.main_app.forms import UserLoginForm
 
 def main_page(request):
     """View for rendering of main page"""
-    context = {'title': 'Главная',
-               }
+    context = {
+        'title': 'Main',
+    }
     return render(request, 'main_app/index.html', context)
 
 
 @login_required
 def to_sith(request):
     """View for transferring to sith page"""
-    context = {'title': 'Переход на страницу для Ситха',
-               }
+    context = {
+        'title': 'Sith Page',
+    }
     return render(request, 'main_app/to_sith.html', context)
 
 
@@ -34,7 +36,7 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main:main'))
     context = {
-        'title': 'Вход',
+        'title': 'Login',
         'login_form': login_form,
     }
     return render(request, 'main_app/login.html', context)

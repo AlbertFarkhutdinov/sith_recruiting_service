@@ -7,28 +7,39 @@ from recruitment.common import get_items, get_item, QUESTIONS_NUMBER_IN_SET
 
 class Sith(CustomUser):
     """Class for sith model"""
+
     class Meta:
         """Correct representation of model in the admin interface"""
-        verbose_name = 'Ситх'
-        verbose_name_plural = 'Ситхи'
+        verbose_name = 'Sith'
+        verbose_name_plural = 'Siths'
 
-    planet = models.ForeignKey(Planet,
-                               verbose_name='Планета, на которой обучает',
-                               on_delete=models.CASCADE)
-    is_shadow_hand = models.BooleanField(verbose_name='Рука Тени',
-                                         default=False)
-    question_set = models.ForeignKey(QuestionSet,
-                                     verbose_name='Тестовое испытание',
-                                     on_delete=models.CASCADE,
-                                     default=1)
-    answers = models.CharField(verbose_name='Ответы',
-                               max_length=QUESTIONS_NUMBER_IN_SET,
-                               default='')
-    master = models.ForeignKey('self',
-                               verbose_name='Мастер',
-                               on_delete=models.CASCADE,
-                               related_name='shadow_hands',
-                               null=True)
+    planet = models.ForeignKey(
+        Planet,
+        verbose_name='Planet',
+        on_delete=models.CASCADE,
+    )
+    is_shadow_hand = models.BooleanField(
+        verbose_name='Is Shadow Hand?',
+        default=False,
+    )
+    question_set = models.ForeignKey(
+        QuestionSet,
+        verbose_name='Test Task',
+        on_delete=models.CASCADE,
+        default=1,
+    )
+    answers = models.CharField(
+        verbose_name='Answers',
+        max_length=QUESTIONS_NUMBER_IN_SET,
+        default='',
+    )
+    master = models.ForeignKey(
+        to='self',
+        verbose_name='Master',
+        on_delete=models.CASCADE,
+        related_name='shadow_hands',
+        null=True,
+    )
 
     @staticmethod
     def get_items(value=None, parameter=None):
@@ -44,7 +55,10 @@ class Sith(CustomUser):
 
     def get_not_shadow_hand_sith_no_self(self):
         """Method returns all sith who is not Shadow Hand and not instance"""
-        return Sith.get_items(parameter='is_shadow_hand', value=False).exclude(pk=self.pk)
+        return Sith.get_items(
+            parameter='is_shadow_hand',
+            value=False,
+        ).exclude(pk=self.pk)
 
     def get_shadow_hands(self):
         """Method returns list of Shadow Hands of Sith"""
@@ -53,9 +67,13 @@ class Sith(CustomUser):
 
     def send_enrollment_mail(self, user):
         """Method sends enrollment mail to user"""
-        title = f'Уведомление о зачислении Рукой Тени для Ситха {user.username}'
-        message = '\n'.join([f'Приветствую, {user.username}! '
-                             f'Ты зачислен Рукой Тени к Ситху {self.username}.'])
+        title = f'Shadow Hand Enrollment Notice for Sith {user.username}'
+        message = '\n'.join(
+            [
+                f'Greetings, {user.username}! ',
+                f'You have been enlisted by the Shadow Hand to the Sith. {self.username}.',
+            ]
+        )
         return send_mail(
             title,
             message,

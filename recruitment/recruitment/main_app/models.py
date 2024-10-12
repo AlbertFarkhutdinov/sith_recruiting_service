@@ -6,18 +6,24 @@ from recruitment.common import get_items, get_item
 
 class CustomUser(AbstractUser):
     """Class for user model"""
-    age = models.PositiveIntegerField(verbose_name='Возраст',
-                                      default=18)
-    email = models.EmailField(verbose_name='E-mail',
-                              max_length=64,
-                              unique=True)
-    role = models.CharField(verbose_name='Роль',
-                            max_length=1,
-                            choices=(
-                                ('S', 'Ситх'),
-                                ('R', 'Рекрут'),
-                            ),
-                            default='R')
+    age = models.PositiveIntegerField(
+        verbose_name='Age',
+        default=18,
+    )
+    email = models.EmailField(
+        verbose_name='E-mail',
+        max_length=64,
+        unique=True,
+    )
+    role = models.CharField(
+        verbose_name='Role',
+        max_length=1,
+        choices=(
+            ('S', 'Sith'),
+            ('R', 'Recruit'),
+        ),
+        default='R',
+    )
 
     @staticmethod
     def get_items(value=None, parameter=None):
@@ -42,14 +48,18 @@ class Planet(models.Model):
 
     class Meta:
         """Correct representation of model in the admin interface"""
-        verbose_name = 'Планета'
-        verbose_name_plural = 'Планеты'
+        verbose_name = 'Planet'
+        verbose_name_plural = 'Planets'
 
-    name = models.CharField(verbose_name='Наименование',
-                            max_length=32,
-                            unique=True)
-    description = models.TextField(verbose_name='Описание',
-                                   blank=True)
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=32,
+        unique=True,
+    )
+    description = models.TextField(
+        verbose_name='Description',
+        blank=True,
+    )
 
     @staticmethod
     def get_items(value=None, parameter=None):
@@ -74,15 +84,21 @@ class QuestionSet(models.Model):
 
     class Meta:
         """Correct representation of model in the admin interface"""
-        verbose_name = 'Тестовое испытание'
-        verbose_name_plural = 'Тестовые испытания'
+        verbose_name = 'Test task'
+        verbose_name_plural = 'Test tasks'
 
-    code = models.PositiveIntegerField(verbose_name='Уникальный код ордена',
-                                       unique=True)
-    created = models.DateTimeField(verbose_name='Время создания',
-                                   auto_now_add=True)
-    updated = models.DateTimeField(verbose_name='Время обновления',
-                                   auto_now=True)
+    code = models.PositiveIntegerField(
+        verbose_name='Unique Code',
+        unique=True,
+    )
+    created = models.DateTimeField(
+        verbose_name='Creating Time',
+        auto_now_add=True,
+    )
+    updated = models.DateTimeField(
+        verbose_name='Update Time',
+        auto_now=True,
+    )
 
     def question_attributes(self, attribute='code'):
         """Method returns list of question attributes in set as the string"""
@@ -118,7 +134,7 @@ class QuestionSet(models.Model):
 
     def __str__(self):
         """String representation of model"""
-        return f'Тестовое испытание #{self.code}'
+        return f'Test task #{self.code}'
 
 
 class Question(models.Model):
@@ -127,29 +143,37 @@ class Question(models.Model):
 
     class Meta:
         """Correct representation of model in the admin interface"""
-        verbose_name = 'Вопрос'
-        verbose_name_plural = 'Вопросы'
+        verbose_name = 'Question'
+        verbose_name_plural = 'Questions'
 
-    code = models.PositiveIntegerField(verbose_name='Код вопроса',
-                                       unique=True)
-    question_set = models.ForeignKey(QuestionSet,
-                                     related_name="questions",
-                                     verbose_name='Тестовое испытание',
-                                     on_delete=models.CASCADE)
-    question = models.TextField(verbose_name='Вопрос')
-    right_answer = models.TextField(verbose_name='Ответ',
-                                    choices=(
-                                        ('Y', 'Да'),
-                                        ('N', 'Нет')
-                                    ),
-                                    max_length=1)
+    code = models.PositiveIntegerField(
+        verbose_name='Question ID',
+        unique=True,
+    )
+    question_set = models.ForeignKey(
+        QuestionSet,
+        related_name="questions",
+        verbose_name='Test Task',
+        on_delete=models.CASCADE,
+    )
+    question = models.TextField(verbose_name='Question')
+    right_answer = models.TextField(
+        verbose_name='Answer',
+        choices=(
+            ('Y', 'Yes'),
+            ('N', 'No')
+        ),
+        max_length=1,
+    )
 
     @staticmethod
     def get_items(value, parameter='question_set'):
         """Method returns questions for current question_set"""
-        return get_items(Question,
-                         value=value,
-                         parameter=parameter)
+        return get_items(
+            Question,
+            value=value,
+            parameter=parameter,
+        )
 
     def __str__(self):
         """String representation of model"""

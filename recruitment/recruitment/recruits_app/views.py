@@ -21,14 +21,14 @@ def register(request):
             auth.login(request, user)
             return HttpResponseRedirect(reverse('recruits:question_list'))
     context = {
-        'title': 'Регистрация рекрута',
+        'title': 'Recruit Registration',
         'register_form': register_form,
     }
     return render(request, 'recruits_app/register.html', context)
 
 
 class IsRecruit(UserPassesTestMixin):
-    """Mixin for checking if user is recruit"""
+    """Mixin for checking if user is a recruit."""
     def test_func(self):
         """Method providing the test performance"""
         user = self.request.user

@@ -7,18 +7,23 @@ from recruitment.common import get_items, get_item
 
 class Recruit(CustomUser):
     """Class for recruit model"""
+
     class Meta:
         """Correct representation of model in the admin interface"""
-        verbose_name = 'Рекрут'
-        verbose_name_plural = 'Рекруты'
+        verbose_name = 'Recruit'
+        verbose_name_plural = 'Recruits'
 
-    planet = models.ForeignKey(Planet,
-                               verbose_name='Планета обитания',
-                               on_delete=models.CASCADE)
-    question_set = models.ForeignKey(QuestionSet,
-                                     verbose_name='Тестовое испытание',
-                                     on_delete=models.CASCADE,
-                                     default=1)
+    planet = models.ForeignKey(
+        Planet,
+        verbose_name='Planet',
+        on_delete=models.CASCADE,
+    )
+    question_set = models.ForeignKey(
+        QuestionSet,
+        verbose_name='Test Task',
+        on_delete=models.CASCADE,
+        default=1,
+    )
 
     @staticmethod
     def get_items(value=None, parameter=None):

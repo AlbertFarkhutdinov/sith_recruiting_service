@@ -2,9 +2,9 @@
 {% load bootstrap5 %}
 {% block container %}
     {% if test_passed %}
-        <p>Вы прошли тест и теперь являетесь ситхом.</p>
+        <p>You passed the test. You are a sith now.</p>
     {% else %}
-        <p>Вы не прошли тест, а значит Вы всё ещё рекрут.</p>
+        <p>You didn't pass the test. You are still a recruit.</p>
     {% endif %}
-    <a href="{% url 'main:main' %}">На главную</a>
+    <a href="{% url 'main:main' %}">Main</a>
 {% endblock %}

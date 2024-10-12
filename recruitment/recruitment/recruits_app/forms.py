@@ -25,7 +25,7 @@ class RecruitRegisterForm(UserCreationForm):
         """Function for checking of recruit age"""
         data = self.cleaned_data['age']
         if data < 18:
-            raise forms.ValidationError('Вы слишком молоды для рекрута!')
+            raise forms.ValidationError('You are too young for recruit!')
         return data
 
     def save(self, commit=True):

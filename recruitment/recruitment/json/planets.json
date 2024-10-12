@@ -1,22 +1,22 @@
 [
   {
-    "name": "Экзегол",
-    "description": "Описание планеты Татуин."
+    "name": "Tatooine",
+    "description": "Description of Tatooine."
   },
   {
-    "name": "Коррибан",
-    "description": "Описание планеты Коррибан."
+    "name": "Mandalore",
+    "description": "Description of Mandalore."
   },
   {
-    "name": "Датомир",
-    "description": "Описание планеты Датомир."
+    "name": "Dathomir",
+    "description": "Description of Dathomir."
   },
   {
-    "name": "Дантуин",
-    "description": "Описание планеты Дантуин."
+    "name": "Dantooine",
+    "description": "Description of Dantooine."
   },
   {
-    "name": "Ондерон",
-    "description": "Описание планеты Ондерон."
+    "name": "Hoth",
+    "description": "Description of Hoth."
   }
 ]

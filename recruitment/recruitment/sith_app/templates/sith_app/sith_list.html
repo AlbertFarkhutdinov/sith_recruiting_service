@@ -6,10 +6,10 @@
 
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Ситх</th>
-            <th scope="col">Тестовое испытание</th>
-            <th scope="col">Правильные ответы</th>
-            <th scope="col">Ответы ситха {{sith.username}}</th>
+            <th scope="col">Sith</th>
+            <th scope="col">Test task</th>
+            <th scope="col">Right answers</th>
+            <th scope="col">Sith answers {{sith.username}}</th>
         </tr>
         </thead>
         {% for sith in not_shadow_hand %}
@@ -26,9 +26,9 @@
         {% csrf_token %}
         {% bootstrap_form choice_form %}
         {% buttons %}
-        <button type="submit" class="btn btn-primary">Выбрать</button>
+        <button type="submit" class="btn btn-primary">Choose</button>
         {% endbuttons %}
     </form>
-    <a class="btn btn-primary" href="{% url 'main:main' %}">На Главную</a>
+    <a class="btn btn-primary" href="{% url 'main:main' %}">Main</a>
 </div>
 {% endblock %}
