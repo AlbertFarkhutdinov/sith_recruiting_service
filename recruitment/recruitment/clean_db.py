@@ -1,22 +1,28 @@
-"""The script for removing database and temporary files"""
+"""The script to remove database and temporary files."""
 from shutil import rmtree
-from os import getcwd, remove
-from os.path import join
+from os import remove
+from pathlib import Path
 
-PROJECT_DIR = getcwd()
-try:
-    remove(join(PROJECT_DIR, 'db.sqlite3'))
-except FileNotFoundError:
-    pass
+PROJECT_DIR = Path(__file__).absolute().parent
+DB_PATH = PROJECT_DIR.joinpath('db.sqlite3')
+TMP_PATH = PROJECT_DIR.joinpath('tmp')
 
 try:
-    rmtree(join(PROJECT_DIR, 'tmp'))
+    remove(DB_PATH)
+    print(f'"{DB_PATH}" is removed.')
 except FileNotFoundError:
-    pass
+    print(f'"{DB_PATH}" is not found.')
+
+try:
+    rmtree(TMP_PATH)
+    print(f'"{TMP_PATH}" is removed.')
+except FileNotFoundError:
+    print(f'"{TMP_PATH}" is not found.')
 
 for app in ('main_app', 'recruits_app', 'sith_app'):
-    app_path = join(PROJECT_DIR, app)
+    migrations_path = PROJECT_DIR.joinpath(app, 'migrations')
     try:
-        rmtree(join(app_path, 'migrations'))
+        rmtree(migrations_path)
+        print(f'"{migrations_path}" is removed.')
     except FileNotFoundError:
-        pass
+        print(f'"{migrations_path}" is not found.')
