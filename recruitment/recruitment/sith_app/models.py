@@ -1,8 +1,8 @@
 """Models for sith_app"""
 from django.db import models
 from django.core.mail import send_mail
-from main_app.models import CustomUser, Planet, QuestionSet
-from common import get_items, get_item, QUESTIONS_NUMBER_IN_SET
+from recruitment.main_app.models import CustomUser, Planet, QuestionSet
+from recruitment.common import get_items, get_item, QUESTIONS_NUMBER_IN_SET
 
 
 class Sith(CustomUser):

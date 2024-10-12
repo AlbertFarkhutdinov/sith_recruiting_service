@@ -3,9 +3,9 @@ from json import load
 from os.path import join
 from django.core.management.base import BaseCommand
 from django.conf import settings
-from main_app.models import Planet, Question, QuestionSet
-from sith_app.models import Sith
-from common import QUESTIONS_NUMBER_IN_SET
+from recruitment.main_app.models import Planet, Question, QuestionSet
+from recruitment.sith_app.models import Sith
+from recruitment.common import QUESTIONS_NUMBER_IN_SET
 
 
 def load_from_json(file_name):

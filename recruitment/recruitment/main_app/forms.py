@@ -1,7 +1,7 @@
 """Forms for main_app"""
 from django.contrib.auth.forms import AuthenticationForm
-from main_app.models import CustomUser
-from common import set_attributes
+from recruitment.main_app.models import CustomUser
+from recruitment.common import set_attributes
 
 
 class UserLoginForm(AuthenticationForm):

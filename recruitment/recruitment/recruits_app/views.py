@@ -6,9 +6,9 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib import auth
 from django.forms import inlineformset_factory
 from django.contrib.auth.decorators import login_required
-from main_app.models import QuestionSet, Question
-from recruits_app.models import Recruit
-from recruits_app.forms import RecruitRegisterForm, QuestionForm
+from recruitment.main_app.models import QuestionSet, Question
+from recruitment.recruits_app.models import Recruit
+from recruitment.recruits_app.forms import RecruitRegisterForm, QuestionForm
 
 
 def register(request):

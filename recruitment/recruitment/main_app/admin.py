@@ -1,6 +1,6 @@
-"""Representation of models from main_app in the admin interface"""
+"""Representation of models from recruitment.main_app in the admin interface"""
 from django.contrib import admin
-from main_app.models import CustomUser, Planet
+from recruitment.main_app.models import CustomUser, Planet
 
 
 @admin.register(CustomUser)

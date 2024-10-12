@@ -3,10 +3,10 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from sith_app.models import Sith
-from sith_app.forms import SithForm
-from common import SHADOW_HANDS_MAX_NUMBER
-from logs.log_config import LOGGER
+from recruitment.sith_app.models import Sith
+from recruitment.sith_app.forms import SithForm
+from recruitment.common import SHADOW_HANDS_MAX_NUMBER
+from recruitment.logs.log_config import LOGGER
 
 
 def sith_login(request):

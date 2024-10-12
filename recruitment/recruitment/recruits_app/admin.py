@@ -1,7 +1,7 @@
-"""Representation of models from recruits_app in the admin interface"""
+"""Representation of models from recruitment.recruits_app in the admin interface"""
 from django.contrib import admin
-from recruits_app.models import Recruit
-from main_app.models import QuestionSet, Question
+from recruitment.recruits_app.models import Recruit
+from recruitment.main_app.models import QuestionSet, Question
 
 
 @admin.register(Recruit)

@@ -1,7 +1,7 @@
 """Models for main_app"""
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from common import get_items, get_item
+from recruitment.common import get_items, get_item
 
 
 class CustomUser(AbstractUser):

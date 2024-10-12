@@ -1,6 +1,6 @@
-"""Representation of models from sith_app in the admin interface"""
+"""Representation of models from recruitment.sith_app in the admin interface"""
 from django.contrib import admin
-from sith_app.models import Sith
+from recruitment.sith_app.models import Sith
 
 
 @admin.register(Sith)

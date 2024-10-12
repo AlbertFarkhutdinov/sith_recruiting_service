@@ -1,10 +1,10 @@
 """Forms for recruit_app"""
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from recruits_app.models import Recruit
-from main_app.models import Question, QuestionSet
+from recruitment.recruits_app.models import Recruit
+from recruitment.main_app.models import Question, QuestionSet
 from random import choice
-from common import set_attributes
+from recruitment.common import set_attributes
 
 
 class RecruitRegisterForm(UserCreationForm):

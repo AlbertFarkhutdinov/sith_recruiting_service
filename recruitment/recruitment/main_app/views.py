@@ -3,7 +3,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from main_app.forms import UserLoginForm
+from recruitment.main_app.forms import UserLoginForm
 
 
 def main_page(request):

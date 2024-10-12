@@ -1,8 +1,8 @@
 """Models for recruits_app"""
 from django.db import models
-from main_app.models import CustomUser, Planet, QuestionSet
-from sith_app.models import Sith
-from common import get_items, get_item
+from recruitment.main_app.models import CustomUser, Planet, QuestionSet
+from recruitment.sith_app.models import Sith
+from recruitment.common import get_items, get_item
 
 
 class Recruit(CustomUser):
