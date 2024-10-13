@@ -1,8 +1,11 @@
-"""Logger settings"""
+"""Logger settings."""
 import logging
 from sys import stderr
+
 LOGGER = logging.getLogger('logger')
-FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(message)s')
+FORMATTER = logging.Formatter(
+    '%(asctime)s %(levelname)s %(filename)s %(message)s',
+)
 
 STREAM_HANDLER = logging.StreamHandler(stderr)
 STREAM_HANDLER.setFormatter(FORMATTER)

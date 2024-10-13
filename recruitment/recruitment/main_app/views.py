@@ -1,13 +1,14 @@
-"""Views for main_app"""
-from django.shortcuts import render, HttpResponseRedirect
+"""Views for main_app."""
 from django.contrib import auth
-from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import HttpResponseRedirect, render
+from django.urls import reverse
+
 from recruitment.main_app.forms import UserLoginForm
 
 
 def main_page(request):
-    """View for rendering of main page"""
+    """View for rendering of main page."""
     context = {
         'title': 'Main',
     }
@@ -16,7 +17,7 @@ def main_page(request):
 
 @login_required
 def to_sith(request):
-    """View for transferring to sith page"""
+    """View for transferring to sith page."""
     context = {
         'title': 'Sith Page',
     }
@@ -24,14 +25,16 @@ def to_sith(request):
 
 
 def login(request):
-    """View for rendering of login page"""
+    """View for rendering of login page."""
     login_form = UserLoginForm()
     if request.method == 'POST':
         data = request.POST
         login_form = UserLoginForm(data=data, files=request.FILES)
         if login_form.is_valid():
-            user = auth.authenticate(username=data.get('username'),
-                                     password=data.get('password'))
+            user = auth.authenticate(
+                username=data.get('username'),
+                password=data.get('password'),
+            )
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main:main'))
@@ -44,6 +47,6 @@ def login(request):
 
 @login_required
 def logout(request):
-    """View for logging out"""
+    """View for logging out."""
     auth.logout(request)
     return HttpResponseRedirect(reverse('main:main'))

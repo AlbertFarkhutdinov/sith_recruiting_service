@@ -24,11 +24,12 @@ CONFIG.read(CONF_PATH.joinpath('local.conf'), encoding='utf-8')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+main_section = 'main'
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = CONFIG.get(section='main', option='SECRET_KEY')
+SECRET_KEY = CONFIG.get(section=main_section, option='SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = CONFIG.getboolean(section='main', option='DEBUG')
+DEBUG = CONFIG.getboolean(section=main_section, option='DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -46,7 +47,9 @@ INSTALLED_APPS = [
 ]
 
 for app in ('main', 'recruits', 'sith'):
-    INSTALLED_APPS.append(f'{app}_app.apps.{app.capitalize()}AppConfig')
+    INSTALLED_APPS.append(
+        '{0}_app.apps.{1}AppConfig'.format(app, app.capitalize()),
+    )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,7 +91,7 @@ DATABASES = {
         'NAME': BASE_DIR.joinpath(
             CONFIG.get(section='db', option='DATABASE_NAME'),
         ),
-    }
+    },
 }
 
 
@@ -97,19 +100,20 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'main_app.CustomUser'
 
-password_validation = 'django.contrib.auth.password_validation'
+validation_prefix = 'django.contrib.auth.password_validation'
+NAME = 'NAME'
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': f'{password_validation}.UserAttributeSimilarityValidator',
+        NAME: '{0}.UserAttributeSimilarityValidator'.format(validation_prefix),
     },
     {
-        'NAME': f'{password_validation}.MinimumLengthValidator',
+        NAME: '{0}.MinimumLengthValidator'.format(validation_prefix),
     },
     {
-        'NAME': f'{password_validation}.CommonPasswordValidator',
+        NAME: '{0}.CommonPasswordValidator'.format(validation_prefix),
     },
     {
-        'NAME': f'{password_validation}.NumericPasswordValidator',
+        NAME: '{0}.NumericPasswordValidator'.format(validation_prefix),
     },
 ]
 
@@ -132,13 +136,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR.joinpath(
-        CONFIG.get(section='main', option='STATICFILES_DIRS'),
+        CONFIG.get(section=main_section, option='STATICFILES_DIRS'),
     ),
 ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath(
-    CONFIG.get(section='main', option='MEDIA_ROOT'),
+    CONFIG.get(section=main_section, option='MEDIA_ROOT'),
 )
 
 # Default primary key field type

@@ -1,10 +1,15 @@
-"""recruits_app URL Configuration"""
+"""recruits_app URL Configuration."""
 from django.urls import path
-import recruits_app.views as recruits_app
+
+from recruitment.recruits_app import views as recruits_app_views
 
 app_name = 'recruits_app'
 urlpatterns = [
-    path('', recruits_app.register, name='register'),
-    path('shadow_hand_test/', recruits_app.QuestionList.as_view(), name='question_list'),
-    path('result/', recruits_app.result, name='result'),
+    path('', recruits_app_views.register, name='register'),
+    path('result/', recruits_app_views.result, name='result'),
+    path(
+        'shadow_hand_test/',
+        recruits_app_views.QuestionList.as_view(),
+        name='question_list',
+    ),
 ]

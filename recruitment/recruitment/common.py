@@ -1,10 +1,8 @@
-"""Common constants and functions used in the project"""
+"""Common constants and functions used in the project."""
 
 
 def get_items(model, value=None, parameter=None):
-    """Method returns all instances of model,
-    if value and parameter is None,
-    else returns filtered queryset"""
+    """Return filtered queryset of model instances."""
     all_objects = model.objects
     if value and parameter:
         filter_arg = {parameter: value}
@@ -13,13 +11,13 @@ def get_items(model, value=None, parameter=None):
 
 
 def get_item(model, value, parameter='pk'):
-    """Method returns the instance with specified parameter"""
+    """Return the instance with specified parameter."""
     filter_arg = {parameter: value}
     return model.objects.filter(**filter_arg).select_related().first()
 
 
 def set_attributes(field):
-    """Function sets attributes for form fields"""
+    """Set attributes for form fields."""
     field.widget.attrs['class'] = 'form-control'
     field.help_text = ''
 
