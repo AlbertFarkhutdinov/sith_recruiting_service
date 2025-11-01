@@ -1,0 +1,10 @@
+{% extends 'recruits_app/base.html'%}
+{% load bootstrap5 %}
+{% block container %}
+    {% if test_passed %}
+        <p>You passed the test. You are a sith now.</p>
+    {% else %}
+        <p>You didn't pass the test. You are still a recruit.</p>
+    {% endif %}
+    <a href="{% url 'main:main' %}">Main</a>
+{% endblock %}

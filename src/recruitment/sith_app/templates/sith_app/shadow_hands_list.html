@@ -1,0 +1,43 @@
+{% extends 'sith_app/base.html'%}
+{% load bootstrap5 %}
+{% block container %}
+<div>
+    <h2 class="h2">Siths and their Shadow hands</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Sith</th>
+            <th scope="col">Shadow hands</th>
+            <th scope="col">Master</th>
+        </tr>
+        </thead>
+        {% for sith in sith_set %}
+        <tr>
+            <td>{{sith.username}}</td>
+            <td>{{sith.get_shadow_hands_number}}</td>
+            <td>{{sith.master.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2 class="h2">Siths with more than 1 Shadow Hand.</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Sith</th>
+            <th scope="col">Shadow Hands Number</th>
+            <th scope="col">Master</th>
+        </tr>
+        </thead>
+        {% for sith in sith_with_two_and_more %}
+        <tr>
+            <td>{{sith.username}}</td>
+            <td>{{sith.get_shadow_hands_number}}</td>
+            <td>{{sith.master.username}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a class="btn btn-primary" href="{% url 'main:main' %}">Main</a>
+</div>
+{% endblock %}

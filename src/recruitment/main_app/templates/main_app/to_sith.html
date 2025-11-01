@@ -1,0 +1,10 @@
+{% extends 'main_app/base.html'%}
+
+{% block container %}
+<div class="row">
+    <p>You have already passed the test. Login as sith.</p>
+    <div class="col">
+        <a href="{% url 'sith:sith_login' %}">Login as Sith</a>
+    </div>
+</div>
+{% endblock %}

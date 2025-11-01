@@ -1,0 +1,14 @@
+{% extends 'sith_app/base.html'%}
+{% load bootstrap5 %}
+{% block container %}
+<div>
+    <form class="form" action="{% url 'sith:sith_login' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form login_form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">Login</button>
+        {% endbuttons %}
+    </form>
+    <a class="btn btn-primary" href="{% url 'main:main' %}">Main</a>
+</div>
+{% endblock %}
