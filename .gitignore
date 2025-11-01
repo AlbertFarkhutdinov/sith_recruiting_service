@@ -134,3 +134,5 @@ dmypy.json
 *.sqlite3
 json
 poetry.lock
+
+local.conf
