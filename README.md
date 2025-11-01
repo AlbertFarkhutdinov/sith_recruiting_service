@@ -49,7 +49,32 @@ If the `pyproject.toml` includes changes to dependencies
 that have not been included in the lockfile yet,
 they will not be present in the environment.
 
-### 3. Prepare the Django project
+### 3. Add `recruitment/conf/local.conf` file
+
+```aiignore
+[main]
+SECRET_KEY: some_secret
+DEBUG: True
+MEDIA_ROOT: media/
+STATICFILES_DIRS: static
+
+[db]
+DATABASE_ENGINE: django.db.backends.sqlite3
+DATABASE_NAME: db.sqlite3
+
+[superuser]:
+username: lord
+email: dark_lord@sith.ru
+password: password
+age: 23
+first_name: Lord
+last_name: Dark
+role: S
+planet: Dathomir
+is_shadow_hand: True
+```
+
+### 4. Prepare the Django project
 
 ```bash
 cd .\src\recruitment\
