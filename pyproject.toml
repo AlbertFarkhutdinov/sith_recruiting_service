@@ -1,0 +1,26 @@
+[project]
+name = "recruitment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+authors = [
+    {name = "AlbertFarkhutdinov",email = "albertfarhutdinov@gmail.com"}
+]
+dependencies = [
+    "django (<5.3)",
+    "django-bootstrap-v5",
+    "pillow (<12.1)",
+]
+
+[dependency-groups]
+dev = [
+    "pytest<9.0",
+    "pytest-cov<8.0",
+    "ruff<1.0",
+    "wemake-python-styleguide<1.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
