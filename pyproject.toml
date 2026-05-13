@@ -8,17 +8,17 @@ authors = [
     {name = "AlbertFarkhutdinov",email = "albertfarhutdinov@gmail.com"}
 ]
 dependencies = [
-    "django (<5.3)",
+    "django (<6.0)",
     "django-bootstrap-v5",
-    "pillow (<12.1)",
+    "pillow (<12.3)",
 ]
 
 [dependency-groups]
 dev = [
-    "pytest<9.0",
-    "pytest-cov<8.0",
-    "ruff<1.0",
-    "wemake-python-styleguide<1.5",
+    "pytest (<10.0)",
+    "pytest-cov (<8.0)",
+    "ruff (<1.0)",
+    "wemake-python-styleguide (<2.0)",
 ]
 
 [build-system]
