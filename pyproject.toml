@@ -8,9 +8,9 @@ authors = [
     {name = "AlbertFarkhutdinov",email = "albertfarhutdinov@gmail.com"}
 ]
 dependencies = [
-    "django (<6.0)",
-    "django-bootstrap-v5",
-    "pillow (<12.3)",
+    "django (<7.0)",
+    "django-bootstrap-v5 (<2.0)",
+    "pillow (<14.0)",
 ]
 
 [dependency-groups]
